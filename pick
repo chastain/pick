@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# using this syntax pick will always launch pick.py as long 
+# as its in the same dir no matter where on the system that dir is.
+script_dir=$(dirname "$0")
+
+# copy the contents of password.txt into the x clipboard
+cat "$script_dir/password.txt" | xclip -selection clipboard
+
+# then run pick
+python3 "$script_dir/pick.py"
+
+# TODO: clear the clipboard at some point, if we do it here it's too soon
+#cat "" | xclip
