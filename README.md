@@ -3,9 +3,11 @@
 Launch a tk GUI and choose a server to SSH into (or Remote Desktop in Windows).
 
 ### Linux
+When connecting to linux machines, a standard ssh session is launched...
 ![Screenshot](screenshot.png)
 
 ### Windows
+When connecting to a windows machine mstsc is used, but if you're on linux you probably cant do this, I've not needed to connect to a Windows machine from a Linux machine, otherwise this would probably be a linux Remote Desktop client, if you need to do that just modify the command in the code.
 ![Screenshot](screenshot-windows.jpg)
 
 At a previous job I often needed to remote into dozens of servers a day, and keeping track of them all in a spreadsheet wasn't ideal.
