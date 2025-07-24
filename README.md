@@ -1,7 +1,11 @@
 # pick.py
 
+Launch a tk GUI and choose a server to SSH into (or Remote Desktop in Windows).
+
+### Linux
 ![Screenshot](screenshot.png)
 
+### Windows
 ![Screenshot](screenshot-windows.jpg)
 
 A python3 script that presents a TK gui listing servers you may need to periodically ssh into.
