@@ -59,7 +59,6 @@ def go(event):
     tree = event.widget
     curItem = tree.focus()
     d = tree.item(curItem) # selected row data json
-    print(csv_header)
 
     # grab the items we need from the selected row
     # user,ip,platform
@@ -73,7 +72,6 @@ def go(event):
         cmd = [
             "ssh", "-A", user + "@" + ip
         ]
-        print(cmd)
         # This hides the window, it gets destroyed when we disconnect from the server.
         # There's probaby a way to completely exit this script and still connect, but this works pretty well.
         root.withdraw()
