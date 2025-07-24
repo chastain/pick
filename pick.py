@@ -1,4 +1,4 @@
-# Server picker 2
+# Server picker
 # Originally written for Windows, modified to run in linux, only really tested in Debian 12.
 # This version fixes some issues but it pretty much just ran on Debian.
 
@@ -15,8 +15,8 @@ import sys
 
 # Server data available at:
 # TODO: Work on this so path can be relative to the script or absolute.
-csv_file = "/home/eric/git/siliconjure/tools/servers.csv"
-#csv_file = "servers.csv"
+#csv_file = "/home/eric/git/siliconjure/tools/servers.csv"
+csv_file = "servers.csv"
 
 def load_header():
     o = []
@@ -90,6 +90,7 @@ def go(event):
         cmd = [
             "ssh", "-A", user + "@" + ip
         ]
+        print(cmd)
         # This hides the window, it gets destroyed when we disconnect from the server.
         # There's probaby a way to completely exit this script and still connect, but this works pretty well.
         root.withdraw()
