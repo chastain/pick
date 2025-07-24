@@ -1,6 +1,5 @@
 # Server picker
 # Originally written for Windows, modified to run in linux, only really tested in Debian 12.
-# This version fixes some issues but it pretty much just ran on Debian.
 
 # You may need to install tk if you get an error, on debian systems this can be done by running
 # sudo apt install python3-tk
@@ -15,7 +14,6 @@ import sys
 
 # Server data available at:
 # TODO: Work on this so path can be relative to the script or absolute.
-#csv_file = "/home/eric/git/siliconjure/tools/servers.csv"
 csv_file = "servers.csv"
 
 def load_header():
@@ -64,27 +62,12 @@ def go(event):
     print(csv_header)
 
     # grab the items we need from the selected row
-    # description,platform,ip,user
-    # TODO: Make this more robust, currently assumes the csv file has the same columns in the same order.
-    # Ideally it would be better to call the columns by their names instead of by their index.
-    #user = d["values"][3]
-    #ip = d["values"][4]
-    #platform = d["values"][6]
+    # user,ip,platform
 
     user = d["values"][get_index_by_name('user')]
     ip = d["values"][get_index_by_name('ip')]
     platform = d["values"][get_index_by_name('platform')]
 
-    # Use list comprehension to get the index by name, so we don't have to keep track of the column order.
-    #print(indexes[0] if indexes else -1)
-    #user = [i for i, value in enumerate(csv_header) if value == 'user']
-    #user = d.values[user[0]] if user else "-1"
-    #ip = [i for i, value in enumerate(csv_header) if value == 'ip']
-    #ip = d.values[ip[0]] if ip else "-1"
-    #platform = [i for i, value in enumerate(csv_header) if value == 'platform']
-    #platform = d.values[platform[0]] if platform else -1
-    #user_index = get_index_by_name('user')
-    #print("user index: " + str(user_index))
     print("Connecting to " + platform + " server " + ip + " as " + user + "... ")
     if (platform == "linux"):
         cmd = [
@@ -218,7 +201,6 @@ def sortby(tree, col, descending):
     data = [(tree.set(child, col), child) \
         for child in tree.get_children('')]
     # if the data to be sorted is numeric change to float
-    #data =  change_numeric(data)
     # now sort the data in place
     data.sort(reverse=descending)
     for ix, item in enumerate(data):
