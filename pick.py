@@ -1,5 +1,5 @@
 # Server picker
-# Originally written for Windows, modified to run in linux, only really tested in Debian 12.
+# Originally written for Windows, modified to run in linux, only really tested in Debian.
 
 # You may need to install tk if you get an error, on debian systems this can be done by running
 # sudo apt install python3-tk
@@ -47,7 +47,7 @@ def load_data():
                 x = []
 
     return o
-    
+
 def get_index_by_name(name):
     """Get the index of a column by its name."""
     try:
@@ -94,16 +94,16 @@ def searchCallback(sv):
     csv_list = [] 
     sp._build_tree(searchString) # calling _build_tree() on the server picker class will reload it
 
-# Launch the data source csv file in the systems default editor
 def editFileCallback():
+    """Launch the data source csv file in the systems default editor"""
     if sys.platform == "win32":
         os.startfile(csv_file)
     else:
         opener = "open" if sys.platform == "darwin" else "xdg-open"
         subprocess.call([opener, csv_file])
 
-# If user hits escape key exit
 def esc(event):
+    """If user hits escape key exit"""
     if (event.keysym == 'Escape'):
         quit()
 
