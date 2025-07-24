@@ -8,9 +8,14 @@ Launch a tk GUI and choose a server to SSH into (or Remote Desktop in Windows).
 ### Windows
 ![Screenshot](screenshot-windows.jpg)
 
-A python3 script that presents a TK gui listing servers you may need to periodically ssh into.
-This script was initially written in Windows, but I only use linux at home so this code has been updated to support that. Note, you may still need to install tk separately even if you already have python3.
+At a previous job I often needed to remote into dozens of servers a day, and keeping track of them all in a spreadsheet wasn't ideal.
 
-At a previous job I had somewhere in the neighborhood of 45 servers that I needed to ssh into periodically, so remembering which server did what was hard enough, but on top of that we had a corporate system that regenerated new passwords for us daily, then manually copy and paste the daily password into each ssh connection.
+To streamline things I wrote this python script to launch a TK GUI that read in the data in "servers.csv" and display the details in the grid.
 
-There is a little code here to support copying the password to the clipboard from password.txt. It's not a big security issue considering the file would reside on your machine and its contents would become invalidated daily, and saved a ton of time, you select the server you want to connect to and the code would copy the password to your clipboard, then you can paste it into the terminal. The password is then cleared from your clipboard. The code for all of this is in the pick.sh shell script.
+When the dialog opens you can immediately start typing anything from any of the columns in the csv and the window will filter to show only the relevant rows. Up and down arrow keys to move up and down through the grid, and enter to launch the connection to that server.
+
+The csv used as a datasource here requires 3 columns (in any order) user, ip, and platform. ip can also be the name of the server if thats easier as long as your machine can see it on the network. You can add any other columns you want but those three are used for initiating the remote connections.
+
+The "Edit Servers List" at the bottom will try to launch the servers file in your default application for .csv files, so you can edit or remove servers at any time that way.
+
+I also had a new password generated for me daily, I copied and pasted the new password each morning into password.txt, then when launching this code from a batch file (now the ./pick bash script) it would copy the password into the clipboard for me, then I could just paste in the password when making the ssh connection. In windows there was a batch file that used clip instead of xclip, but it used the same idea.
