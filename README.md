@@ -1,6 +1,6 @@
 # pick.py
 
-Launch a tk GUI and choose a server to SSH into (or Remote Desktop in Windows).
+Launch a tkinter GUI from the terminal, and choose a server to SSH into (or Remote Desktop in Windows).
 
 ### Linux
 When connecting to linux machines, a standard ssh session is launched...
