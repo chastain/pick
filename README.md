@@ -1,7 +1,8 @@
 # pick.py
 
-![Screenshot](screenshot.jpg)
-![Screenshot](screenshot-windows.png)
+![Screenshot](screenshot.png)
+
+![Screenshot](screenshot-windows.jpg)
 
 A python3 script that presents a TK gui listing servers you may need to periodically ssh into.
 This script was initially written in Windows, but I only use linux at home so this code has been updated to support that. Note, you may still need to install tk separately even if you already have python3.
